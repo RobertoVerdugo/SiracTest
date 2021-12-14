@@ -13,13 +13,15 @@ namespace SiracTest
     {
         private readonly ICategoryService categoryService;
         private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<IdentityUser> signInManager;
+
         [Fact]
         public void TestPaginarPublicacionesValido()
         {
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 int indice = 1;
                 Publicacion pub = new Publicacion();
                 Publicaciones.Add(pub);
@@ -36,7 +38,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 int indice = -1; //indice negativo
                 Publicacion pub = new Publicacion();
                 Publicaciones.Add(pub);
@@ -59,7 +61,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 Filtro Filtro = new Filtro();
 
                 string filtrado = "Perro";
@@ -91,7 +93,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 Filtro Filtro = new Filtro();
 
                 Filtro.especie = "3";// 3 no existe
@@ -116,7 +118,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 Filtro Filtro = new Filtro();
 
                 Filtro.especie = "1";// 1 para Perro
@@ -141,7 +143,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 Filtro Filtro = new Filtro();
 
                 string especie = "Perro";
@@ -183,7 +185,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 Filtro Filtro = new Filtro();
 
                 Filtro.especie = "3";// 3 no existe
@@ -218,7 +220,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
                 Filtro Filtro = new Filtro();
 
                 Filtro.especie = "1";// 1 para Perro
@@ -254,7 +256,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
 
                 string orden = "Recomendados";
                 string rut = "20.483.340-0";
@@ -291,7 +293,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
 
                 string orden = "Color"; // no existe
                 string rut = "20.483.340-0";
@@ -334,7 +336,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
 
                 Preferencia pref = new Preferencia();
                 Publicacion pub = new Publicacion();
@@ -357,7 +359,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
 
                 Preferencia pref = new Preferencia();
                 Publicacion pub = new Publicacion();
@@ -383,7 +385,7 @@ namespace SiracTest
             using (var db = new ApplicationDbContext(Utilities.Utilities.TestDbContextOptions()))
             {
                 List<Publicacion> Publicaciones = new List<Publicacion>();
-                IndexModel index = new IndexModel(db, categoryService, userManager);
+                IndexModel index = new IndexModel(db, categoryService, userManager, signInManager);
 
                 Preferencia pref = new Preferencia();
                 Publicacion pub = new Publicacion();
